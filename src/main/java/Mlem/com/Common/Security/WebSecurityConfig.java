@@ -84,6 +84,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					"/res",
 					"/login",
 					"/oauth/**",
+					"/admin/**",
 					"/assets/**").permitAll()
 			//page must login by user role
 			.antMatchers("/view")
