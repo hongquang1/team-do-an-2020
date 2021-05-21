@@ -1,0 +1,80 @@
+.social-login a:hover {
+    text-decoration: none !important;
+}
+
+.content {
+    padding: 7rem 0;
+}
+
+.half,
+.half .container>.row {
+    height: 100vh;
+}
+
+@media (max-width: 991.98px) {
+    .half .bg {
+        height: 500px;
+    }
+}
+
+.half .contents,
+.half .bg {
+    width: 50%;
+}
+
+@media (max-width: 1199.98px) {
+    .half .contents,
+    .half .bg {
+        width: 100%;
+    }
+}
+
+.half .btn {
+    height: 54px;
+}
+
+.social-login a {
+    text-decoration: none;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.social-login a:hover {
+    color: #fff;
+}
+
+.social-login a.facebook {
+    background: #3b5998;
+    width: 50%;
+    margin: auto
+}
+
+.social-login a.facebook:hover {
+    background: #344e86;
+}
+
+.social-login a.twitter {
+    background: #1da1f2;
+}
+
+.social-login a.twitter:hover {
+    background: #0d95e8;
+}
+
+.social-login a.google {
+    background: #ea4335;
+    width: 50%;
+    margin: 0.5rem auto
+}
+
+.social-login a.google:hover {
+    background: #e82e1e;
+}
+
+p.cecurity {
+    color: darkgray;
+    font-style: oblique;
+    font-size: medium;
+}
