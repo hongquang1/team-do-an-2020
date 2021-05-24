@@ -82,6 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers("/",
 					"/login",
+				        "/upload",
 					"/oauth/**",
 					"/css/**",
 					"/images/**",
