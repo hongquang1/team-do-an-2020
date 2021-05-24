@@ -17,7 +17,7 @@ CREATE TABLE Accounts(
 	gender character varying(10),
 	enable BOOLEAN,
 	avatar character varying(100),
-	auth_provider character varying(50),
+	auth_provider int,
 	 FOREIGN KEY (role_id) REFERENCES Roles(role_id)
 )
 CREATE TABLE LevelCourse(
