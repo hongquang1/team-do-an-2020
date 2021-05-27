@@ -33,7 +33,11 @@ CREATE TABLE GeneralCourse(
 	name_general_course varchar(500),
 	des_general_course varchar(2000),
 	price_course int,
-    create_date "timestamp" ,
+	content_general_course varchar(1000),
+	image_course varchar(255),
+	urlvideo_course varchar(255),
+	youtube_course varchar(255),
+        create_date "timestamp",
 	FOREIGN KEY (lc_id) REFERENCES LevelCourse(lc_id)
 )
 CREATE TABLE Course(
