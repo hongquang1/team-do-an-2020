@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>UPLOAD FILE</title>
+</head>
+
+<body>
+
+	<label for="file">Filename:</label>
+	<input type="file" name="file" id="file" />
+	<input type="button" onclick="uploadVideo()" name="submit" value="Submit" />
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script>
+		function uploadVideo() {
+			console.log('processing....')
+			var formData = new FormData();
+			const file = document.getElementById('file').files[0]
+			formData.append("file", file);
+			console.log(file.size)
+			axios.post('http://localhost:8080/upload', formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data'
+				}
+			}).then((response) => {
+				console.log(response);
+			}).catch((error) => {
+				console.log(error);
+			});
+		}
+	</script>
+</body>
+
+</html>

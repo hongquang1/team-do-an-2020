@@ -84,6 +84,21 @@ public class UserService {
         response.addCookie(newCookie);
 		
 	}
+	
+	public User getAccount(String userCookie) {
+		if(userCookie.equals("defaultCookieValue")) {
+			
+			return null;
+			
+		} 
+		else {
+			User user = getMyUserCookie(userCookie);
+			User user1 = getUserByEmailAndProvider(user.getEmail(),user.getProvider());
+			user.setFullName(user.getFullName().replace('+', ' '));
+			return user1;
+		}
+		
+	}
 
 
 }

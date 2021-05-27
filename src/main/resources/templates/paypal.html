@@ -114,7 +114,7 @@ span.price {
 <div class="row">
     <div class="col-75">
         <div class="container">
-            <form method="GET"  action="/pay">
+            <form method="POST"  action="/pay">
                 <div class="col-50">
                     <h3>Payment</h3>
                     
@@ -125,16 +125,17 @@ span.price {
                         <i class="fa fa-cc-mastercard" style="color:red;"></i>
                         <i class="fa fa-cc-discover" style="color:orange;"></i>
                     </div>
-                    <label for="price">Total</label>
-                    <input type="text" id="price" name="price" value="10">
+                    
+                     <label for="price">Total</label>
+                    <input type="text" id="price" name="price" th:value="${genC.priceCourse}" readonly>
                     <label for="currency">Currency</label>
-                    <input type="text" id="currency" name="currency" placeholder="Enter Currency">
+                    <input type="text" id="currency" name="currency" placeholder="Enter Currency" value="USD" readonly>
                     <label for="method">Payment Method</label>
-                    <input type="text" id="method" name="method" placeholder="Payment Method">
+                    <input type="text" id="method" name="method" placeholder="Payment Method" readonly value="paypal">
                     <label for="intent">Intent</label>
-                    <input type="text" id="intent" name="intent" value="sale">
-                    <label for="description">Payment Description</label>
-                    <input type="text" id="description" name="description" placeholder="Payment Description">
+                    <input type="text" id="intent" name="intent" value="sale" readonly>
+                    <label for="description">ID Course</label>
+                    <input type="text" id="description" name="description" th:value="${genC.id}" readonly>
 
                 </div>
 
@@ -142,17 +143,7 @@ span.price {
             </form>
         </div>
     </div>
-    <div class="col-25">
-        <div class="container">
-            <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-            <p><a href="#">Product 1</a> <span class="price">$1</span></p>
-            <p><a href="#">Product 2</a> <span class="price">$4</span></p>
-            <p><a href="#">Product 3</a> <span class="price">$3</span></p>
-            <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-            <hr>
-            <p>Total <span class="price" style="color:black"><b>$10</b></span></p>
-        </div>
-    </div>
+   
 </div>
 
 </body>

@@ -13,14 +13,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 
 import Mlem.com.Common.Entity.Provider;
 import Mlem.com.Common.Entity.User;
@@ -46,6 +47,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		return authProvider;
 	}
+	
+	
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -54,33 +57,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		//login by cookie
-		User user =userService.getMyUserCookie("MY_USER");
-			if (user!=null) {
-				if (user.getRole()==1) {
-					http.authorizeRequests()
-					.antMatchers("/admin/**").permitAll();
-				}else if(user.getRole()==2) {
-					http.authorizeRequests()
-					.antMatchers("/manager_course/**").permitAll();
-				}else if(user.getRole()==3) {
-					http.authorizeRequests()
-					.antMatchers("/manager_categories/**").permitAll();
-				}
-				else if(user.getRole()==4) {
-					http.authorizeRequests()
-					.antMatchers("/teacher/**").permitAll();
-				}
-				else {
-					http.authorizeRequests()
-					.antMatchers("/**").permitAll();
-				}
-			}
-			//public page
 			http
+//			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//			.and()			
 			.csrf().disable()
+			//public page
 			.authorizeRequests()
 			.antMatchers("/",
+					"/upload",
 					"/login",
 					"/oauth/**",
 					"/css/**",
@@ -108,17 +92,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.access("hasRole('ROLE_MANAGER_COURSE')")
 			
 			.anyRequest().authenticated()
-			.and()
 //			.formLogin().permitAll()
 //				.loginPage("/login")
 //				.usernameParameter("email")
 //				.passwordParameter("pass")
 //				.defaultSuccessUrl("/list")
-//			.and()
+			
+			.and()
+//			.requestMatcher(withoutCookieToken())
 			.oauth2Login()
 				.loginPage("/login")
-				
-				//.loginProcessingUrl("/processlogin")
+			//.loginProcessingUrl("/processlogin")
 				.userInfoEndpoint()
 					.userService(oauthUserService)
 				.and()
@@ -149,13 +133,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						//add new user into session
 						//request.getSession(true).setAttribute("MY_USER", newUser);
 						
+						
 						//set my user cookie
 						userService.setMyUserCookie(newUser,response); 
-						
+				
 						response.sendRedirect("/");
 					}
 				})
-				//.defaultSuccessUrl("/list")
+				
 			.and()
 			.logout()		
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -168,16 +153,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-//		User user =userService.getMyUserCookie("MY_USER");
-//		if (user!=null) {
-//			web.ignoring().antMatchers("/a");
-//			System.out.println(user);
-//		}
-		
-		web.ignoring().antMatchers("/resources");
-	}
 
 
 	@Autowired
@@ -188,7 +163,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserService userService;
 
 	
-	
+//	private RequestMatcher withoutCookieToken() {
+//		  return request -> request.getCookies() == null || Arrays.stream(request.getCookies()).noneMatch(cookie -> cookie.getName().equals("MY_USER"));
+//		}
 	
 	
 	

@@ -1,7 +1,6 @@
 package Mlem.com.Common.Services;
 
 import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,8 +21,9 @@ public class CloudinaryService {
         try {
             File uploadedFile = convertMultiPartToFile(file);
             Map<String, String> uploadParams = new HashMap<String, String>();
-            uploadParams.put("resource_type", "video");
+            uploadParams.put("resource_type", "auto");
             Map uploadResult = cloudinaryConfig.uploader().upload(uploadedFile, uploadParams );
+            System.out.print(uploadResult);
             return  uploadResult.get("url").toString();
         } catch (Exception e) {
             throw new RuntimeException(e);
