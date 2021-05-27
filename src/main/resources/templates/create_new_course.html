@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿	<!DOCTYPE html>
 <html lang="en">
 
 <!-- Mirrored from gambolthemes.net/html-items/cursus_demo_f12/create_new_course.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 03:49:46 GMT -->
@@ -1125,9 +1125,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script>
+	var host ="https://team-do-an-2020.herokuapp.com/" //'http://localhost:8080/'
 	const uploadPromise = function(formData){
 		return new Promise(function (resolve, reject) {
-				axios.post('http://localhost:8080/upload', formData, {
+				axios.post(host+"upload", formData, {
 					headers: {
 						'Content-Type': 'multipart/form-data'
 					}
@@ -1162,7 +1163,7 @@
 				urlVideoCourse: urlVideo,
 				urlYoutubeCourse: urlYoutbe
 			}
-			axios.post('http://localhost:8080/generalCourse/create', GeneralCourse).then((response) => {
+			axios.post(host+'generalCourse/create', GeneralCourse).then((response) => {
 				console.log(response);
 			}).catch((error) => {
 				console.log(error);
