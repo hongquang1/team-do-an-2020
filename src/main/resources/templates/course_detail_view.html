@@ -167,7 +167,7 @@
                         <img src="images/hd_dp.jpg" alt=""> Đăng nhập
                     </a>
                 </li>
-             <li class="ui dropdown">
+             <li class="ui dropdown" th:if="${user!=null}">
 
 					<a href="#" class="opts_account" title="Account">
 						 <img  th:src="${user.avatar}"alt="">

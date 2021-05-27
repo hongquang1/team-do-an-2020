@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
 
 
@@ -153,7 +154,7 @@
                         <img src="images/hd_dp.jpg" alt=""> Đăng nhập
                     </a>
                 </li>
-             <li class="ui dropdown">
+             <li class="ui dropdown" th:if="${user!=null}">
 
 					<a href="#" class="opts_account" title="Account">
 						 <img  th:src="${user.avatar}"alt="">
@@ -191,7 +192,7 @@
 						<a href="setting.html" class="item channel_item">Cài đặt</a>
 						<a href="help.html" class="item channel_item">Giúp đỡ</a>
 						<a href="feedback.html" class="item channel_item">Phản hồi</a>
-						<a href="sign_in.html" class="item channel_item">Đăng xuất</a>
+						<a href="/logout" class="item channel_item">Đăng xuất</a>
 					</div>
 				</li>
             </ul>
