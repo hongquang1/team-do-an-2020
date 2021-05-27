@@ -12,7 +12,7 @@
     transform: translateY(-50%);
     box-shadow: 0 10px 20px -5px #94a6af;
     overflow: hidden;
-    margin-top: 5rem;
+    margin-top: 1rem;
 }
 
 .btncourse button:before,
@@ -56,6 +56,56 @@ button:after {
     transition: 0.3s ease transform;
     z-index: 1;
 }
+
+.btncourse button:nth-child(5):before {
+    transform: scale(1);
+    background-image: url(https://images.unsplash.com/photo-1606851094291-6efae152bb87?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    background-size: cover;
+    transition: 0.3s ease transform;
+    z-index: 1;
+}
+
+.btncourse button:nth-child(6):before {
+    transform: scale(1);
+    background-image: url(https://images.unsplash.com/photo-1606851094291-6efae152bb87?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    background-size: cover;
+    transition: 0.3s ease transform;
+    z-index: 1;
+}
+
+.btncourse button:nth-child(7):before {
+    transform: scale(1);
+    background-image: url(https://images.unsplash.com/photo-1606851094291-6efae152bb87?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    background-size: cover;
+    transition: 0.3s ease transform;
+    z-index: 1;
+}
+
+.btncourse button:nth-child(8):before {
+    transform: scale(1);
+    background-image: url(https://images.unsplash.com/photo-1606851094291-6efae152bb87?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    background-size: cover;
+    transition: 0.3s ease transform;
+    z-index: 1;
+}
+
+.btncourse button:nth-child(9):before {
+    transform: scale(1);
+    background-image: url(https://images.unsplash.com/photo-1606851094291-6efae152bb87?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    background-size: cover;
+    transition: 0.3s ease transform;
+    z-index: 1;
+}
+
+.btncourse button:nth-child(10):before {
+    transform: scale(1);
+    background-image: url(https://images.unsplash.com/photo-1606851094291-6efae152bb87?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    background-size: cover;
+    transition: 0.3s ease transform;
+    z-index: 1;
+}
+
+
 
 .btncourse button:after {
     background-color: #000;
@@ -115,6 +165,49 @@ button div:after {
     opacity: 1;
     transform: scale(1);
 }
+
+.btncourse button:nth-child(5) div:before {
+    content: "Món chiên";
+    letter-spacing: 0;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btncourse button:nth-child(6) div:before {
+    content: "Món chiên";
+    letter-spacing: 0;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btncourse button:nth-child(7) div:before {
+    content: "Món chiên";
+    letter-spacing: 0;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btncourse button:nth-child(8) div:before {
+    content: "Món chiên";
+    letter-spacing: 0;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btncourse button:nth-child(9) div:before {
+    content: "Món chiên";
+    letter-spacing: 0;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btncourse button:nth-child(10) div:before {
+    content: "Món chiên";
+    letter-spacing: 0;
+    opacity: 1;
+    transform: scale(1);
+}
+
 
 .btncourse button div:nth-child(1):after {
     content: "Học nào !";

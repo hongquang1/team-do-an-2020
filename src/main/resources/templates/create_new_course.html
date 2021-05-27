@@ -161,20 +161,17 @@
 								class='uil uil-arrow-right'></i></a>
 					</div>
 				</li>
-				<a href="#" class="opts_account" title="Account">
-					<img src="images/hd_dp.jpg" alt="">
-				</a>
-				<span><a href="/login.html">Đăng nhập</a></span>
+			
 				<!-- Thanh thông tin người dùng -->
 				<li class="ui dropdown">
 
 					<a href="#" class="opts_account" title="Account">
-						<img src="images/hd_dp.jpg" alt="">
+						 <img  th:src="${user.avatar}"alt="">
 					</a>
 					<div class="menu dropdown_account">
 						<div class="channel_my">
 							<div class="profile_link">
-								<img src="images/hd_dp.jpg" alt="">
+							 <img  th:src="${user.avatar}"alt="">
 								<div class="pd_content">
 									<div class="rhte85">
 										<input type="hidden" id="userId" th:value="${user.id}" />
@@ -183,10 +180,10 @@
 											<i class='uil uil-check-circle'></i>
 										</div>
 									</div>
-									<span><a href="https://gambolthemes.net/cdn-cgi/l/email-protection"
-											class="__cf_email__"
-											data-cfemail="aacdcbc7c8c5c6939e99eacdc7cbc3c684c9c5c7">[email&#160;protected]</a></span>
-								</div>
+									 <span><a th:text="${user.email}"
+                                            class="__cf_email__"
+                                           ></a></span>
+										</div>
 							</div>
 							<a href="my_instructor_profile_view.html" class="dp_link_12">Xem hồ sơ người hướng dẫn </a>
 						</div>
