@@ -28,8 +28,6 @@ public class GeneralCourse {
 	private int id;
 	@Column(name = "lc_id")
 	private long lcId;
-	@Column(name = "cate_id")
-	private long cateId;
 	@Column(name = "manager_id")
 	private long managerId;
 	@Column(name = "name_general_course")

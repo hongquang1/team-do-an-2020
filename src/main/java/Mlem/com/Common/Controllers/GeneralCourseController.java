@@ -1,6 +1,7 @@
 package Mlem.com.Common.Controllers;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,10 +22,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import Mlem.com.Common.Entity.Categories;
 import Mlem.com.Common.Entity.GeneralCourse;
 import Mlem.com.Common.Entity.LevelCourse;
 import Mlem.com.Common.Entity.User;
+import Mlem.com.Common.Request.CreateGeneralCourseRequest;
+import Mlem.com.Common.Services.CategoriesCourseService;
 import Mlem.com.Common.Services.CategoriesService;
 import Mlem.com.Common.Services.GeneralCourseService;
 import Mlem.com.Common.Services.LevelCourseService;
@@ -34,14 +38,15 @@ import Mlem.com.Common.Services.UserService;
 public class GeneralCourseController {
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	@Autowired
-	CategoriesService categoriesService;
+	private CategoriesService categoriesService;
 	@Autowired
-	LevelCourseService levelCourseService;
+	private LevelCourseService levelCourseService;
 	@Autowired
-
 	private GeneralCourseService generalCourseService;
+	@Autowired
+	private CategoriesCourseService categoriesCourseService;
 
 //	@RequestMapping("/")
 //	public String index(Model model) {
@@ -65,12 +70,13 @@ public class GeneralCourseController {
 
 	@RequestMapping(value = "/generalCourse/create", method = RequestMethod.POST)
 	@ResponseBody
-	public GeneralCourse addGeneralCourse(@RequestBody GeneralCourse generalCourse) {
+	public CreateGeneralCourseRequest addGeneralCourse(@RequestBody CreateGeneralCourseRequest request) {
 		
 		
-		generalCourseService.saveGeneralCourse(generalCourse);
-	
-		return generalCourse;
+		request.setGeneralCourse(generalCourseService.saveGeneralCourse(request.getGeneralCourse())); 
+	    categoriesCourseService.saveCategoriesCourse(request.getCateIdArray(), request.getGeneralCourse().getId());
+		
+		return request;
 	}
 
 //	@RequestMapping(value = "/generalCourse/edit", method = RequestMethod.GET)
